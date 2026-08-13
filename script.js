@@ -48,33 +48,3 @@ filters.forEach(btn => btn.addEventListener('click', () => {
   const filter=btn.dataset.filter;
   stories.forEach(s=>s.classList.toggle('hidden',filter!=='all' && s.dataset.category!==filter));
 }));
-
-const translations = {
-  bm:{
-    nav_about:'Tentang',nav_work:'Usaha Kami',nav_impact:'Impak',nav_legacy:'Legasi',nav_archive:'Arkib',nav_governance:'Tadbir Urus',
-    hero_kicker:'YAYASAN TUN ABDUL HAMID · 1996—2026',hero_title:'Legasi Khidmat.<br><em>Masa Depan Penuh Peluang.</em>',hero_deck:'Memajukan pendidikan undang-undang, mengiktiraf kecemerlangan akademik dan menghulurkan bantuan bermakna kepada mereka yang memerlukan.',discover_work:'Terokai usaha kami',our_story:'Kisah kami',
-    intro_kicker:'TIGA PULUH TAHUN BERKHIDMAT',intro_title:'Ditubuhkan untuk menghormati kehidupan yang diabdikan kepada undang-undang dan khidmat awam.',intro_body:'Ditubuhkan pada 9 November 1996, Yayasan Tun Abdul Hamid memajukan pendidikan undang-undang melalui bantuan kewangan, anugerah akademik dan kerjasama institusi, di samping misi kemanusiaan untuk meringankan penderitaan dan meningkatkan taraf hidup.',read_history:'Baca sejarah kami',
-    stat_established:'Ditubuhkan',stat_students:'Pelajar undang-undang dibantu sejak 2010',stat_clp_since:'Tajaan hadiah CLP bermula',stat_clp_value:'Hadiah tahunan Pelajar Terbaik Keseluruhan CLP',
-    work_kicker:'USAHA KAMI',work_title:'Mewujudkan peluang.<br>Mengiktiraf kecemerlangan.',work_intro:'Program kami berasaskan prinsip mudah: pendidikan mampu mengubah kehidupan, dan bantuan bermakna harus memelihara maruah.',
-    work_education_label:'PENDIDIKAN UNDANG-UNDANG',work_education_title:'Membuka ruang untuk mempelajari undang-undang.',work_education_body:'Bursari tunai, komputer riba dan bantuan pendidikan untuk mahasiswa undang-undang yang memerlukan sokongan.',
-    work_awards_label:'KECEMERLANGAN AKADEMIK',work_awards_title:'Menghargai mereka yang cemerlang.',work_awards_body:'Anugerah bersama Lembaga Kelayakan Profesion Undang-Undang, UUM dan UniSZA mengiktiraf pencapaian cemerlang dalam bidang undang-undang.',
-    work_small_label:'SMALL STEPS',work_small_title:'Amal yang disampul dengan maruah.',work_small_body:'Bantuan praktikal yang dilaksanakan dengan lembut, dengan publisiti diminimumkan bagi memelihara maruah dan privasi penerima.',
-    clp_kicker:'MENYOKONG KECEMERLANGAN SEJAK 1997',clp_title:'Pelajar Terbaik Keseluruhan Sijil Amalan Guaman.',clp_body:'YTAH menaja hadiah tahunan berprestij yang kini bernilai RM10,000 untuk calon CLP layak yang mencapai keputusan terbaik.',view_recipients:'Lihat arkib penerima',
-    small_kicker:'SMALL STEPS',small_quote:'“Amal yang disampul dengan maruah.”',small_body:'Tidak setiap amal memerlukan perhatian umum. Small Steps mencerminkan kepercayaan YTAH bahawa bantuan boleh diberikan secara bermakna, peribadi dan senyap. Gambar serta publisiti sengaja diminimumkan.',discover_small:'Terokai Small Steps',
-    legacy_kicker:'PENGASAS',legacy_title:'Kehidupan yang didedikasikan kepada undang-undang, khidmat awam dan tanggungjawab yang berkekalan.',legacy_body:'Tun Dato’ Seri Haji Abdul Hamid bin Haji Omar diterima masuk ke English Bar pada 1955, dilantik sebagai Hakim Mahkamah Tinggi pada 1968 dan bersara sebagai Ketua Hakim Negara pada 1994. Beliau mempengerusikan YTAH sejak penubuhannya pada 1996 hingga 2009.',legacy_signoff:'Kepercayaannya terhadap kesinambungan kekal sebagai sebahagian daripada kisah yayasan.',
-    timeline_kicker:'1996—2026',timeline_title:'Tiga puluh tahun, satu tujuan yang berterusan.',archive_kicker:'KISAH & ARKIB',archive_title:'Memori institusi, bukan sekadar suapan berita.',archive_intro:'Laman akhir boleh memindahkan catatan WordPress bersejarah YTAH ke dalam arkib yang bersih dan boleh dicari mengikut tahun serta program.',
-    gov_kicker:'TADBIR URUS',gov_title:'Amanah merentas generasi.',gov_body:'Laman baharu memisahkan kepimpinan semasa, ahli dan penasihat daripada rekod sejarah sambil memastikan maklumat tadbir urus mudah dicari.',gov_board:'Lembaga semasa',gov_history:'Sejarah kepimpinan',gov_records:'Rekod tadbir urus',closing_title:'Legasi diteruskan.<br><em>Peluang diwariskan.</em>',contact_us:'Hubungi yayasan',footer_tag:'Legasi Khidmat. Masa Depan Penuh Peluang.'
-  }
-};
-const original = new Map();
-document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el=>original.set(el,el.innerHTML));
-let language='en';
-const langToggle=document.querySelector('.language-toggle');
-langToggle?.addEventListener('click',()=>{
-  language=language==='en'?'bm':'en'; document.documentElement.lang=language==='bm'?'ms':'en';
-  document.querySelectorAll('[data-i18n],[data-i18n-html]').forEach(el=>{
-    const key=el.dataset.i18n || el.dataset.i18nHtml;
-    el.innerHTML=language==='bm'?(translations.bm[key] ?? original.get(el)):original.get(el);
-  });
-  langToggle.innerHTML=language==='en'?'<span class="lang-active">EN</span><span>/</span><span>BM</span>':'<span>EN</span><span>/</span><span class="lang-active">BM</span>';
-});

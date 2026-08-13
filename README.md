@@ -1,37 +1,40 @@
-# YTAH 30th Anniversary Website Prototype
+# YTAH 30th Anniversary Website
 
-Standalone GitHub Pages-ready homepage concept for **Yayasan Tun Abdul Hamid, 1996–2026**.
+Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
 
-## Quick test
+## Pages
 
-You can either open `index.html` directly or publish the folder with GitHub Pages. See **`DEPLOY-GITHUB.md`** for exact steps.
+- `index.html` — homepage
+- `about.html` — foundation purpose and values
+- `work.html` — legal education, academic excellence and partnerships
+- `impact.html` — verified public impact indicators
+- `legacy.html` — Tun Abdul Hamid Omar and foundation chronology
+- `archive.html` — selected stories and links to the existing historical archive
+- `governance.html` — current Board, members, advisor, leadership history and meeting records
+- `contact.html` — verified registered contact information
+- `clp.html` — dedicated CLP Best Overall Student Prize page
+- `small-steps.html` — dedicated Small Steps page
+- `30-years.html` — 1996–2026 anniversary timeline
 
-## Included
+## Design system
 
-- `index.html` — responsive homepage structure and content
-- `styles.css` — complete visual system and responsive layout
-- `script.js` — mobile navigation, reveal effects, interactive timeline, archive filters and EN/BM prototype switch
-- `assets/` — locally bundled prototype images and anniversary seal
-- `.nojekyll` — GitHub Pages compatibility
-- `404.html` — simple project-site fallback
-- `DEPLOY-GITHUB.md` — step-by-step GitHub Pages deployment guide
+- `styles.css` contains the complete responsive visual system.
+- `script.js` contains mobile navigation, reveal effects, homepage timeline and archive filtering.
+- `assets/` contains the locally bundled staging photography and anniversary mark.
 
-## Prototype status
+## Staging status
 
-- This is a **static test build**. It does not require or modify the existing WordPress installation on 50webs.
-- Evaluation photography is stored locally in the package, so the visual design does not depend on the live YTAH server for those images.
-- Archive and governance links intentionally point to the current public YTAH website while the rest of the new site is being developed.
-- The header uses a temporary typographic YTAH mark, not a replacement official logo. The original-resolution logo should be inserted during production migration.
-- The EN/BM switch demonstrates the bilingual architecture; a production build should complete all translations.
-- The prototype includes `noindex,nofollow` to reduce the chance that a temporary GitHub test site is indexed by search engines.
+This build is intentionally marked `noindex,nofollow` while it is being evaluated on GitHub Pages. It is independent of WordPress and does not modify the current YTAH website.
 
-## Recommended production migration after approval
+Facts and names in the staging pages were adapted from YTAH's current public website. The archive page deliberately links selected historical stories back to `ytah.com.my` until the WordPress database is migrated.
 
-1. Export the original logo, photographs and archival material from WordPress / 50webs.
-2. Audit the existing WordPress pages, posts, categories, attachments and URLs.
-3. Verify current 2026 programme status, statistics and board information.
-4. Build the remaining About, Our Work, Impact, Legacy, Archive, Governance and Contact pages.
-5. Complete Bahasa Malaysia localisation.
-6. Create a redirect map for old WordPress URLs.
-7. Convert the approved design into the final WordPress theme or other chosen production architecture.
-8. Test on staging before replacing the live site.
+No email address, telephone number, cumulative donation value or other data has been invented where the current public site does not provide it.
+
+## Production migration later
+
+1. Export the full WordPress database and `wp-content/uploads` media library.
+2. Replace staging images with original-resolution archival files.
+3. Verify all 2026 programme status, current Board information and impact figures.
+4. Import the full historical post archive.
+5. Create a redirect map from old WordPress URLs to the new information architecture.
+6. Convert this approved design into the final WordPress theme, retaining WordPress as the CMS.
