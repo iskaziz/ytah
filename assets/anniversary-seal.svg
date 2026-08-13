@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <circle cx="300" cy="300" r="280" fill="none" stroke="#17352c" stroke-width="3"/>
+  <circle cx="300" cy="300" r="258" fill="none" stroke="#a68d5b" stroke-width="1"/>
+  <text x="300" y="265" text-anchor="middle" font-family="Georgia,serif" font-size="170" fill="#17352c">30</text>
+  <text x="300" y="335" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" letter-spacing="12" fill="#17352c">YEARS</text>
+  <text x="300" y="395" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" letter-spacing="7" fill="#a68d5b">1996—2026</text>
+</svg>
