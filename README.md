@@ -20,7 +20,8 @@ Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
 
 - `styles.css` contains the complete responsive visual system.
 - `script.js` contains mobile navigation, reveal effects, homepage timeline and archive filtering.
-- `assets/` contains the locally bundled staging photography and anniversary mark.
+- `assets/media/` contains a curated, web-optimised subset of the original YTAH WordPress uploads, plus the anniversary mark in `assets/`.
+- `MEDIA-SOURCES.md` maps every optimised site image back to its source file in the cleaned upload archive.
 
 ## Staging status
 
@@ -33,7 +34,7 @@ No email address, telephone number, cumulative donation value or other data has 
 ## Production migration later
 
 1. Export the full WordPress database and `wp-content/uploads` media library.
-2. Replace staging images with original-resolution archival files.
+2. Retain the original-resolution upload archive as the master media source; the GitHub build uses compressed WebP derivatives for speed.
 3. Verify all 2026 programme status, current Board information and impact figures.
 4. Import the full historical post archive.
 5. Create a redirect map from old WordPress URLs to the new information architecture.
