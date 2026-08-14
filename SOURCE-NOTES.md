@@ -13,3 +13,7 @@ Key public pages used:
 - https://ytah.com.my/contact/
 
 Before production launch, verify programme status, names, dates, contact channels, award recipients and impact figures against YTAH's internal records and the migrated WordPress database.
+
+## Governance content
+
+The Governance page mirrors the full biographical record and profile structure published on the current YTAH Board of Directors page, with light copy-editing for punctuation and web readability. All matching portraits were sourced from the supplied WordPress uploads archive.
