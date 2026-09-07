@@ -1,6 +1,6 @@
 # YTAH 30th Anniversary Website
 
-Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
+Production-ready static website for Yayasan Tun Abdul Hamid, 1996–2026.
 
 ## Pages
 
@@ -9,8 +9,8 @@ Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
 - `work.html` — legal education, academic excellence and partnerships
 - `impact.html` — verified public impact indicators
 - `legacy.html` — Tun Abdul Hamid Omar and foundation chronology
-- `archive.html` — selected stories and links to the existing historical archive
-- `governance.html` — current Directors & Trustees, members, advisor, leadership history and meeting records
+- `archive.html` — selected historical stories and archival material
+- `governance.html` — current Directors & Trustees, advisor, leadership history and meeting records
 - `contact.html` — verified registered contact information
 - `clp.html` — dedicated CLP Best Overall Student Prize page
 - `small-steps.html` — dedicated Small Steps page
@@ -18,24 +18,28 @@ Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
 
 ## Design system
 
-- `styles.css` contains the complete responsive visual system.
+- `styles.css` contains the responsive visual system.
 - `script.js` contains mobile navigation, reveal effects, homepage timeline and archive filtering.
-- `assets/media/` contains a curated, web-optimised subset of the original YTAH WordPress uploads, plus the anniversary mark in `assets/`.
-- `MEDIA-SOURCES.md` maps every optimised site image back to its source file in the cleaned upload archive.
+- `assets/media/` contains the curated, web-optimised image set used by the site.
+- `MEDIA-SOURCES.md` maps each optimised site image back to its source in the supplied media archive.
 
-## Staging status
+## Production status
 
-This package is a production-ready launch candidate. Public pages permit indexing and include canonical/social metadata, `robots.txt`, a sitemap and compatibility routes for selected legacy WordPress URLs. The public domain should only be pointed to this build once the redesign is approved.
+This repository is prepared as the public launch candidate. Public pages permit indexing and include canonical URLs, social sharing metadata, `robots.txt`, `sitemap.xml` and a `CNAME` for `www.ytah.com.my`.
 
-Facts and names in the staging pages were adapted from YTAH's current public website. The archive page deliberately links selected historical stories back to `ytah.com.my` until the WordPress database is migrated.
+Compatibility routes are included for selected legacy WordPress URLs so important bookmarked and search-indexed paths continue to lead visitors to relevant content after cutover. Redirect pages are intentionally `noindex,follow`.
 
-No email address, telephone number, cumulative donation value or other data has been invented where the current public site does not provide it.
+Facts and names were adapted from YTAH's public material and supplied source archive. No email address, telephone number, cumulative donation value, appointment, honour, quotation or historical claim has been invented where the available source did not support it.
 
-## Production migration later
+## Editorial conventions
 
-1. Export the full WordPress database and `wp-content/uploads` media library.
-2. Retain the original-resolution upload archive as the master media source; the GitHub build uses compressed WebP derivatives for speed.
-3. Verify all 2026 programme status, current Directors & Trustees information and impact figures.
-4. Import the full historical post archive.
-5. Create a redirect map from old WordPress URLs to the new information architecture.
-6. Convert this approved design into the final WordPress theme, retaining WordPress as the CMS.
+- On the Legacy page, sentences referring to Tun Abdul Hamid do not begin with the pronoun “He”.
+- The current governance heading is **Directors & Trustees**.
+- The former visitor-facing **Voting Members** heading and description are not used.
+- Historically accurate uses of “Board” are retained where they refer to records, documents or historical governance terminology.
+
+## Deployment
+
+See `DEPLOY-GITHUB.md` for the GitHub Pages and custom-domain cutover procedure.
+
+Before public cutover, verify current programme availability, Directors & Trustees appointments, contact channels and any time-sensitive impact figures against YTAH's internal records. Preserve a complete backup of the existing WordPress site and database before changing DNS.

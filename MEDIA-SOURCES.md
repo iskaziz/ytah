@@ -1,6 +1,6 @@
 # Curated media sources
 
-All images in `assets/media/` were derived from the YTAH WordPress uploads archive supplied for this migration. They were resized and converted to WebP for the GitHub staging build; the source upload is preserved separately.
+All images in `assets/media/` were derived from the YTAH WordPress uploads archive supplied for this migration. They were resized and converted to WebP for the redesigned website; the source upload is preserved separately as the archival master.
 
 | Site asset | Source in cleaned upload |
 |---|---|
