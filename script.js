@@ -2,24 +2,31 @@ const header = document.getElementById('siteHeader');
 const menuBtn = document.querySelector('.menu-toggle');
 const nav = document.getElementById('primaryNav');
 
-function updateHeader(){ header.classList.toggle('scrolled', window.scrollY > 40); }
+function updateHeader(){ header?.classList.toggle('scrolled', window.scrollY > 40 || header.classList.contains('inner-header')); }
 updateHeader();
 window.addEventListener('scroll', updateHeader, {passive:true});
-
+function closeMenu(returnFocus = false){
+  nav?.classList.remove('open');
+  menuBtn?.setAttribute('aria-expanded', 'false');
+  menuBtn?.setAttribute('aria-label', 'Open navigation');
+  if(returnFocus) menuBtn?.focus();
+}
 menuBtn?.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', String(open));
   menuBtn.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
 });
-nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuBtn?.setAttribute('aria-expanded','false');
-}));
-
-const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); } });
-},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => closeMenu()));
+document.addEventListener('keydown', e => {if(e.key === 'Escape' && nav?.classList.contains('open')) closeMenu(true);});
+document.addEventListener('click', e => {if(header && !header.contains(e.target)) closeMenu();});
+header?.addEventListener('focusout', () => {setTimeout(() => {if(!header.contains(document.activeElement)) closeMenu();},0);});
+window.matchMedia('(min-width:1101px)').addEventListener('change', () => closeMenu());
+if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('in-view'); revealObserver.unobserve(entry.target); } });
+  },{threshold:0,rootMargin:'0px 0px 30px 0px'});
+  document.querySelectorAll('.reveal').forEach(el => {el.classList.add('reveal-pending');revealObserver.observe(el);});
+}
 
 const timelineData = {
   1955:['Called to the English Bar','Tun Abdul Hamid was called to the English Bar as a Barrister-at-Law of The Honourable Society of Lincoln’s Inn, London.'],
@@ -34,17 +41,36 @@ const timelineData = {
 const yearEl = document.getElementById('timelineYear');
 const headingEl = document.getElementById('timelineHeading');
 const textEl = document.getElementById('timelineText');
-document.querySelectorAll('.timeline-dot').forEach(btn => btn.addEventListener('click', () => {
-  document.querySelectorAll('.timeline-dot').forEach(b => {b.classList.remove('active');b.setAttribute('aria-selected','false')});
-  btn.classList.add('active');btn.setAttribute('aria-selected','true');
-  const y=btn.dataset.year; const [h,t]=timelineData[y];
-  yearEl.textContent=y; headingEl.textContent=h; textEl.textContent=t;
-}));
-
+const tabs = [...document.querySelectorAll('.timeline-dot')];
+const panel = document.querySelector('.timeline-detail');
+if(panel){panel.id='timelinePanel';panel.setAttribute('role','tabpanel');panel.tabIndex=0;}
+function selectYear(btn){
+  tabs.forEach(b => {const active=b===btn;b.classList.toggle('active',active);b.setAttribute('aria-selected',String(active));b.tabIndex=active?0:-1;});
+  const y=btn.dataset.year;const [h,t]=timelineData[y];
+  yearEl.textContent=y;headingEl.textContent=h;textEl.textContent=t;
+  panel?.setAttribute('aria-labelledby',btn.id);
+}
+tabs.forEach((btn,i) => {
+  btn.id='year-'+btn.dataset.year;btn.setAttribute('aria-controls','timelinePanel');
+  btn.tabIndex=btn.classList.contains('active')?0:-1;
+  if(btn.tabIndex===0) panel?.setAttribute('aria-labelledby',btn.id);
+  btn.addEventListener('click',()=>selectYear(btn));
+  btn.addEventListener('keydown',e=>{
+    let next;
+    if(e.key==='ArrowRight')next=(i+1)%tabs.length;
+    if(e.key==='ArrowLeft')next=(i+tabs.length-1)%tabs.length;
+    if(e.key==='Home')next=0;
+    if(e.key==='End')next=tabs.length-1;
+    if(next!==undefined){e.preventDefault();selectYear(tabs[next]);tabs[next].focus();}
+  });
+});
 const filters = document.querySelectorAll('.filter');
 const stories = document.querySelectorAll('.story');
-filters.forEach(btn => btn.addEventListener('click', () => {
-  filters.forEach(b=>b.classList.remove('active')); btn.classList.add('active');
-  const filter=btn.dataset.filter;
-  stories.forEach(s=>s.classList.toggle('hidden',filter!=='all' && s.dataset.category!==filter));
-}));
+filters.forEach(btn => {
+  btn.setAttribute('aria-pressed',String(btn.classList.contains('active')));
+  btn.addEventListener('click', () => {
+    filters.forEach(b=>{b.classList.toggle('active',b===btn);b.setAttribute('aria-pressed',String(b===btn));});
+    const filter=btn.dataset.filter;
+    stories.forEach(s=>{const hide=filter!=='all' && s.dataset.category!==filter;s.classList.toggle('hidden',hide);s.hidden=hide;});
+  });
+});

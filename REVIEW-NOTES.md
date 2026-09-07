@@ -1,0 +1,43 @@
+# YTAH redesign review — 7 September 2026
+
+The redesign is worth retaining: forest green, burgundy, serif headings and real foundation photographs give it a consistent institutional identity. The separate programme, governance and history pages are useful. This update refines the existing static site rather than rebuilding it.
+
+## Changes made
+
+- Increased navigation, action labels, biographies and programme body text for readability; improved small-screen header, hero spacing, footer wrapping and caption backgrounds.
+- Added visible keyboard focus, active-page semantics, Escape/outside-click menu dismissal, menu state reset and scrollable navigation on short screens.
+- Implemented arrow keys, Home/End, roving focus and associated panels for the history tabs. Archive filters now expose their selected state to assistive technology.
+- Made content visible by default when JavaScript is unavailable; supplied a no-JavaScript mobile navigation fallback. Motion respects the visitor's reduced-motion preference.
+- Added intrinsic image dimensions and asynchronous image decoding.
+- Replaced internal implementation copy on Contact and Archive with visitor-facing language. Retained a discreet Design preview footer and staging noindex setting.
+- Corrected the 2012 IIUM archive thumbnail using the supplied IMG_2782-With-Tie original, which matches the official story. Removed the 2015 image from the 2011 story rather than implying that it depicted that event.
+- Removed the uncertain 2026 CLP photograph from the anniversary page; used the documented Sumita Selvakumar photograph instead. The uncertain asset remains available in the package for later confirmation.
+- Changed an archive label from a page-update date to the known event year; labelled the Small Steps programme as ongoing rather than implying a dated event.
+
+## Checks completed
+
+- All 12 HTML pages have one primary heading.
+- 306 local HTML links and asset references, plus CSS image references, resolve; local fragment targets were checked.
+- JavaScript passes Node syntax validation.
+- Inspected a contact sheet of the existing curated images and checked the source media mapping.
+- This was a source, content and media review. Browser rendering, keyboard interaction and responsive layouts still need an actual browser check; no browser testing or accessibility certification is claimed.
+
+## Before the public launch
+
+- Supply a preferred public email address or telephone number and the actual bursary enquiry/application process. The current official Contact page provides only the registered address, so no new contact details were invented.
+- Confirm current board appointments, programme availability and whether the approximate 170-student figure has changed. The current Awards & Bursaries page supports that figure, but it is not a live counter.
+- The 30th anniversary falls on 9 November 2026; the design treats 2026 as the anniversary year.
+- Confirm the 2026 CLP photo's event and people before restoring a specific caption.
+- Keep the archive URLs working during migration; establish redirects before replacing WordPress. Remove staging noindex and preview wording only for the final public release.
+- The existing circular YTAH wordmark is a design treatment, not an assertion that it is the approved foundation logo. Confirm preferred official logo usage before launch.
+
+## Official sources checked
+
+- https://ytah.com.my/contact/ — registered address and registration number
+- https://ytah.com.my/clp-prize/ — RM10,000 prize and named recipient photographs
+- https://ytah.com.my/awards-bursaries/ — approximate 170 students and university award records
+- https://ytah.com.my/yayasan-tun-abdul-hamid-sponsors-five-iium-law-students/ — 2012 event and photograph
+
+## Opening the update
+
+Extract the ZIP, open the ytah folder and double-click index.html. This is a static website; Node/npm is not required. Replace the corresponding files in your existing staging repository when ready. The ZIP omits Git history; keep the .git directory already in your working repository. No changes have been pushed or published to the live website.

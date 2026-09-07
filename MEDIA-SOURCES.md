@@ -42,3 +42,7 @@ All images in `assets/media/` were derived from the YTAH WordPress uploads archi
 | `award-2024.webp` | `01_CURRENT_SITE/2025_02__YTAH-Tan-Boon-Ting.jpg` |
 | `award-unisza.webp` | `01_CURRENT_SITE/2025_02__YTAH-Amanda.jpg` |
 | `bursary-2013.webp` | `02_ARCHIVE_USABLE/legal_education_awards/2016_05__ytah-iium-burs-2013-a.jpg` |
+
+## Review correction — 7 September 2026
+
+`bursary-2012.webp` derives from `04_REVIEW_RECENT_OR_UNCERTAIN/older_uncategorised/2016_05__IMG_2782-With-Tie.jpg`. The official 2012 IIUM story explicitly references this original. It replaces the unrelated 2013 thumbnail on that archive entry. The 2011 entry no longer uses the 2015 ceremony photograph. The unconfirmed `clp-2026.webp` is retained as an unused asset, pending verification.
