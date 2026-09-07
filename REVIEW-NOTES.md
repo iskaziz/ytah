@@ -20,12 +20,12 @@ The redesign is worth retaining: forest green, burgundy, serif headings and real
 - 306 local HTML links and asset references, plus CSS image references, resolve; local fragment targets were checked.
 - JavaScript passes Node syntax validation.
 - Inspected a contact sheet of the existing curated images and checked the source media mapping.
-- This was a source, content and media review. Browser rendering, keyboard interaction and responsive layouts still need an actual browser check; no browser testing or accessibility certification is claimed.
+- This was a source, content and media review. Source-level responsive, keyboard and accessibility checks were completed. Headless Chromium is present in the workspace but could not complete local-page rendering because its system bus/zygote process does not initialise correctly here; no visual browser certification is claimed.
 
 ## Before the public launch
 
 - Supply a preferred public email address or telephone number and the actual bursary enquiry/application process. The current official Contact page provides only the registered address, so no new contact details were invented.
-- Confirm current board appointments, programme availability and whether the approximate 170-student figure has changed. The current Awards & Bursaries page supports that figure, but it is not a live counter.
+- Confirm current Director and Trustee appointments, programme availability and whether the approximate 170-student figure has changed. The current Awards & Bursaries page supports that figure, but it is not a live counter.
 - The 30th anniversary falls on 9 November 2026; the design treats 2026 as the anniversary year.
 - Confirm the 2026 CLP photo's event and people before restoring a specific caption.
 - Keep the archive URLs working during migration; establish redirects before replacing WordPress. Remove staging noindex and preview wording only for the final public release.
@@ -41,3 +41,11 @@ The redesign is worth retaining: forest green, burgundy, serif headings and real
 ## Opening the update
 
 Extract the ZIP, open the ytah folder and double-click index.html. This is a static website; Node/npm is not required. Replace the corresponding files in your existing staging repository when ready. The ZIP omits Git history; keep the .git directory already in your working repository. No changes have been pushed or published to the live website.
+
+## Milestone 2 — editorial and consistency pass
+
+- Reconciled remaining governance terminology across the homepage, Governance page and project notes. The visitor-facing navigation now uses “Directors & Trustees”; historical references to a Board remain where they describe archival records or the foundation's governing documents.
+- Removed the remaining sentence-opening “He” reference to Tun Abdul Hamid from the interactive homepage chronology and strengthened the 2006 Legacy chronology wording by naming Tun directly.
+- Tightened governance biographies for institutional tone and consistency without adding new biographical claims. Corrected the Aza Izati name inconsistency against the profile heading and source page.
+- Changed the governance records subheading from “Board meetings” to “Meeting records” while retaining the historically accurate term “Board meetings” in the explanatory copy.
+- Normalised several awkward phrases and capitalisation choices in current leadership profiles.

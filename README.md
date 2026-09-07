@@ -10,7 +10,7 @@ Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
 - `impact.html` — verified public impact indicators
 - `legacy.html` — Tun Abdul Hamid Omar and foundation chronology
 - `archive.html` — selected stories and links to the existing historical archive
-- `governance.html` — current Board, members, advisor, leadership history and meeting records
+- `governance.html` — current Directors & Trustees, members, advisor, leadership history and meeting records
 - `contact.html` — verified registered contact information
 - `clp.html` — dedicated CLP Best Overall Student Prize page
 - `small-steps.html` — dedicated Small Steps page
@@ -35,7 +35,7 @@ No email address, telephone number, cumulative donation value or other data has 
 
 1. Export the full WordPress database and `wp-content/uploads` media library.
 2. Retain the original-resolution upload archive as the master media source; the GitHub build uses compressed WebP derivatives for speed.
-3. Verify all 2026 programme status, current Board information and impact figures.
+3. Verify all 2026 programme status, current Directors & Trustees information and impact figures.
 4. Import the full historical post archive.
 5. Create a redirect map from old WordPress URLs to the new information architecture.
 6. Convert this approved design into the final WordPress theme, retaining WordPress as the CMS.

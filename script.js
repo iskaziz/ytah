@@ -31,7 +31,7 @@ if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-mot
 const timelineData = {
   1955:['Called to the English Bar','Tun Abdul Hamid was called to the English Bar as a Barrister-at-Law of The Honourable Society of Lincoln’s Inn, London.'],
   1968:['Appointed to the High Court','Tun Abdul Hamid was appointed a judge of the High Court of Malaya.'],
-  1994:['Retirement as Chief Justice','He retired as Chief Justice of the Federal Court of Malaysia after a distinguished judicial career.'],
+  1994:['Retirement as Chief Justice','Tun Abdul Hamid retired as Chief Justice of the Federal Court of Malaysia after a distinguished judicial career.'],
   1996:['YTAH established','Yayasan Tun Abdul Hamid was established on 9 November 1996 to honour its founder and further legal education, alongside humanitarian objectives.'],
   1997:['CLP prize sponsorship begins','YTAH began its long-running sponsorship of the Best Overall Student prize for the Certificate in Legal Practice examinations.'],
   2006:['Continuity recorded','A letter composed and signed by Tun Abdul Hamid recorded his intention that his eldest son, Azizuddin, join the Board to help ensure continuity of the Yayasan’s work and objects.'],
