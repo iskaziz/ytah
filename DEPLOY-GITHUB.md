@@ -1,19 +1,25 @@
-# Deploy on GitHub Pages
+# Production deployment — GitHub Pages
 
-This package is ready to sit at the repository root.
+This package is structured to deploy from the repository root.
 
-1. Upload all files in this folder to the root of `https://github.com/iskaziz/ytah`.
-2. Commit the files to the `main` branch.
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch **main** and folder **/(root)**.
-6. Save.
+1. Commit the site files to the `main` branch of `https://github.com/iskaziz/ytah`.
+2. In GitHub, open **Settings → Pages**.
+3. Under **Build and deployment**, choose **Deploy from a branch**.
+4. Select **main** and **/(root)**, then save.
+5. Configure the custom domain as **www.ytah.com.my**. The included `CNAME` file preserves this setting.
+6. Update the domain DNS only when the redesign is approved for public cutover.
+7. After DNS resolves, enable **Enforce HTTPS** in GitHub Pages.
+8. Verify `https://www.ytah.com.my/robots.txt` and `https://www.ytah.com.my/sitemap.xml`.
 
-GitHub will publish the site at the repository's Pages URL.
+## Before public cutover
 
-## Important
+- Back up/export the existing WordPress site and database.
+- Preserve the old site separately if its historical articles may be required later.
+- Confirm legacy URLs listed in the compatibility routes resolve to the intended replacement pages.
+- Re-test desktop, tablet and mobile on real browsers.
+- Confirm all navigation, archive filters and interactive controls.
+- Submit the new sitemap to the Foundation's search-console account after launch, if one is in use.
 
-- Keep `.nojekyll` in the repository root.
-- The staging build uses relative paths, so it works both at a project URL such as `/ytah/` and when opened locally.
-- Pages contain `noindex,nofollow` while testing. Remove that meta tag from all pages only when the new site becomes the official production site.
-- Do not point `ytah.com.my` to GitHub Pages yet; this package is for design/content testing while the existing WordPress site remains live.
+## Search indexing
+
+The launch candidate now permits indexing and contains canonical URLs, Open Graph metadata, `robots.txt`, and `sitemap.xml`. Do not point the public domain at this build until the redesign is approved. Compatibility redirect pages remain `noindex,follow`.

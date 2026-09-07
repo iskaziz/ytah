@@ -25,7 +25,7 @@ Static GitHub Pages staging build for Yayasan Tun Abdul Hamid, 1996–2026.
 
 ## Staging status
 
-This build is intentionally marked `noindex,nofollow` while it is being evaluated on GitHub Pages. It is independent of WordPress and does not modify the current YTAH website.
+This package is a production-ready launch candidate. Public pages permit indexing and include canonical/social metadata, `robots.txt`, a sitemap and compatibility routes for selected legacy WordPress URLs. The public domain should only be pointed to this build once the redesign is approved.
 
 Facts and names in the staging pages were adapted from YTAH's current public website. The archive page deliberately links selected historical stories back to `ytah.com.my` until the WordPress database is migrated.
 
