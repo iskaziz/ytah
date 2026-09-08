@@ -74,3 +74,19 @@ filters.forEach(btn => {
     stories.forEach(s=>{const hide=filter!=='all' && s.dataset.category!==filter;s.classList.toggle('hidden',hide);s.hidden=hide;});
   });
 });
+
+// CLP Prize lightbox
+(()=>{const items=[...document.querySelectorAll('.clp-thumb')],box=document.getElementById('clpLightbox');if(!items.length||!box)return;const img=document.getElementById('clpLightboxImage'),yr=document.getElementById('clpLightboxYear'),nm=document.getElementById('clpLightboxName'),tx=document.getElementById('clpLightboxText');let i=0,last=null;const show=n=>{i=(n+items.length)%items.length;const e=items[i];img.src=e.dataset.gallerySrc;img.alt=e.dataset.galleryAlt||'';yr.textContent=e.dataset.galleryYear||'';nm.textContent=e.dataset.galleryName||'';tx.textContent=e.dataset.galleryCaption||'';};const close=()=>{box.classList.remove('is-open');box.setAttribute('aria-hidden','true');document.body.classList.remove('clp-lightbox-open');last?.focus();};items.forEach((e,n)=>e.addEventListener('click',()=>{last=e;show(n);box.classList.add('is-open');box.setAttribute('aria-hidden','false');document.body.classList.add('clp-lightbox-open');box.querySelector('.clp-lightbox-close').focus();}));box.querySelector('.clp-lightbox-close').onclick=close;box.querySelector('.clp-lightbox-prev').onclick=()=>show(i-1);box.querySelector('.clp-lightbox-next').onclick=()=>show(i+1);box.addEventListener('click',e=>{if(e.target===box)close()});document.addEventListener('keydown',e=>{if(!box.classList.contains('is-open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1);});})();
+
+// site-header-scroll-compact
+(() => {
+  const header=document.querySelector('.site-header');
+  if(!header) return;
+  const sync=()=>{
+    const compact=window.scrollY>24;
+    header.classList.toggle('is-scrolled',compact);
+    document.body.classList.toggle('scrolled',compact);
+  };
+  sync();
+  window.addEventListener('scroll',sync,{passive:true});
+})();
