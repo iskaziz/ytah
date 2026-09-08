@@ -439,3 +439,20 @@ img{max-width:100%;display:block}
  *,*::before,*::after{animation:none!important;transition:none!important}
  .reveal.reveal-pending{opacity:1;transform:none}
 }
+
+/* Richer archival photography + combined Work/Impact + expanded CLP */
+.editorial-photo-grid{display:grid;grid-template-columns:1.15fr .85fr 1fr;gap:12px;padding:0 4vw 72px;background:#f5f1e8}
+.editorial-photo-grid figure,.clp-gallery figure{margin:0;overflow:hidden;background:#162f28}
+.editorial-photo-grid img{width:100%;height:360px;object-fit:cover;display:block}
+.editorial-photo-grid figure:nth-child(2) img{height:430px}
+.editorial-photo-grid figcaption,.clp-gallery figcaption{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;background:#17352c;color:#fff;font-size:.68rem;letter-spacing:.11em;text-transform:uppercase}
+.editorial-photo-grid figcaption span,.clp-gallery figcaption span{opacity:.68}
+.clp-archive-section{background:#f5f1e8}
+.clp-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.clp-gallery img{width:100%;height:290px;object-fit:cover;display:block;filter:saturate(.9)}
+.clp-gallery figure:nth-child(4n+1){grid-column:span 2}
+.clp-gallery figure:nth-child(4n+1) img{height:390px}
+.recipient-list-expanded{grid-template-columns:repeat(3,minmax(0,1fr))}
+.archive-note{max-width:820px;margin:28px auto 0;color:#66726c;font-size:.92rem;line-height:1.7}
+@media(max-width:900px){.editorial-photo-grid,.clp-gallery{grid-template-columns:1fr 1fr}.editorial-photo-grid figure:nth-child(2) img,.editorial-photo-grid img,.clp-gallery img,.clp-gallery figure:nth-child(4n+1) img{height:280px}.clp-gallery figure:nth-child(4n+1){grid-column:auto}.recipient-list-expanded{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.editorial-photo-grid,.clp-gallery,.recipient-list-expanded{grid-template-columns:1fr}.editorial-photo-grid{padding-left:20px;padding-right:20px}.editorial-photo-grid img,.editorial-photo-grid figure:nth-child(2) img,.clp-gallery img{height:auto;aspect-ratio:4/3}}

@@ -1,0 +1,65 @@
+# Yayasan Tun Abdul Hamid — 50webs/Apache final static-site hardening
+# Phase 4: intended for use AFTER WordPress/PHP has been fully removed.
+# HTTPS enforcement retained. HSTS remains intentionally disabled.
+
+Options -Indexes
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self' 'unsafe-inline'; connect-src 'self'; media-src 'self'; frame-src 'none'"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS.
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+  # Block sensitive dot-files while allowing ACME certificate validation.
+  RewriteRule "(^|/)\.(?!well-known(?:/|$))" - [F,L]
+</IfModule>
+
+# Block common configuration, backup, database and log files.
+<FilesMatch "(?i)^(wp-config\.php|php\.ini|\.user\.ini|error_log|access_log|composer\.(json|lock)|package(-lock)?\.json|yarn\.lock)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+<FilesMatch "(?i)\.(bak|backup|conf|config|dist|ini|log|old|orig|sql|sqlite|swp|tmp|inc)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Final static-site rule: block ALL PHP execution in the public web root.
+# This should only be enabled once the site no longer depends on WordPress/PHP.
+<FilesMatch "\.php$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# HSTS intentionally remains OFF.
+# Consider enabling only after HTTPS and certificate renewal have been stable long-term.
+# <IfModule mod_headers.c>
+#   Header always set Strict-Transport-Security "max-age=31536000"
+# </IfModule>
