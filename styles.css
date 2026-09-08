@@ -353,7 +353,7 @@ img{max-width:100%;display:block}
 .bio-profile p{font-size:13px;line-height:1.82;color:#626762;margin:0 0 14px}
 .bio-profile p:last-child{margin-bottom:0}
 .bio-profile em{font-family:var(--serif)}
-.profile-grid-three{grid-template-columns:repeat(3,1fr)}
+.profile-grid-three{grid-template-columns:repeat(3,1fr);align-items:start}
 .profile-grid-three .bio-profile{grid-template-columns:1fr;gap:24px}
 .profile-grid-three .bio-profile figure{width:130px;aspect-ratio:4/5}
 .profile-grid-single{grid-template-columns:1fr}
